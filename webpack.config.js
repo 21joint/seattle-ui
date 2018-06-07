@@ -89,6 +89,7 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 sourceMap: IS_DEV,
+                  url: IS_DEV
               },
             },
             {
