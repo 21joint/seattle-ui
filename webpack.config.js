@@ -30,135 +30,135 @@ const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
  * returns '[name].ejs' as string
  **/
 const getNameFromDir = (dir) => {
-  const lastSlash = dir.lastIndexOf('/');
-  return dir.slice(lastSlash + 1);
+    const lastSlash = dir.lastIndexOf('/');
+    return dir.slice(lastSlash + 1);
 };
 
 /**
  * Function to loop through all templates/files (*.ejs)
  */
 const generateHTMLPlugins = () =>
-    glob.sync('./src/*.html').map(function(dir) {
-      return new HtmlWebpackPlugin({
-        template: path.resolve(conf.dirSrc, getNameFromDir(dir)),
-      });
+    glob.sync('./src/*.html').map(function (dir) {
+        return new HtmlWebpackPlugin({
+            template: path.resolve(conf.dirSrc, getNameFromDir(dir)),
+        });
     });
 
 /**
  * Webpack Configuration
  */
 module.exports = {
-  target: 'web',
-  node: {
-    fs: 'empty',
-  },
-  entry: {
-    vendor: path.join(conf.dirSrc, 'scripts/vendor.js'),
-    common: path.join(conf.dirSrc, 'scripts/common.js'),
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-  },
-  resolve: {
-    modules: [
-      conf.dirSrc,
-      conf.dirNode,
-      conf.dirImages,
-      conf.dirFonts,
-    ],
-    alias: {
-      '@': path.resolve(__dirname, 'node_modules'),
-      '~': path.resolve(__dirname, 'node_modules'),
+    target: 'web',
+    node: {
+        fs: 'empty',
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-      },
-      // SCSS
-      {
-        test: /\.scss$/,
-        exclude: /(node_modules)/,
-        use: ExtractTextPlugin.extract({
-          use: [
+    entry: {
+        vendor: path.join(conf.dirSrc, 'scripts/vendor.js'),
+        common: path.join(conf.dirSrc, 'scripts/common.js'),
+    },
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+    },
+    resolve: {
+        modules: [
+            conf.dirSrc,
+            conf.dirNode,
+            conf.dirImages,
+            conf.dirFonts,
+        ],
+        alias: {
+            '@': path.resolve(__dirname, 'node_modules'),
+            '~': path.resolve(__dirname, 'node_modules'),
+        },
+    },
+    module: {
+        rules: [
             {
-              loader: 'css-loader',
-              options: {
-                sourceMap: IS_DEV,
-                  url: IS_DEV
-              },
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
             },
+            // SCSS
             {
-              loader: 'resolve-url-loader',
-              options: {
-                sourceMap: IS_DEV,
-                root: conf.dirSrc,
-              },
+                test: /\.scss$/,
+                exclude: /(node_modules)/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: IS_DEV,
+                                url: IS_DEV
+                            },
+                        },
+                        {
+                            loader: 'resolve-url-loader',
+                            options: {
+                                sourceMap: IS_DEV,
+                                root: conf.dirSrc,
+                            },
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: IS_DEV,
+                                plugins: [
+                                    autoprefixer({browsers: ['last 3 versions', 'iOS 9']}),
+                                ],
+                            },
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: IS_DEV,
+                            },
+                        }],
+                    // use style-loader in development
+                    fallback: {
+                        loader: 'style-loader',
+                    },
+                }),
             },
+            // IMAGES
             {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: IS_DEV,
-                plugins: [
-                  autoprefixer({browsers: ['last 3 versions', 'iOS 9']}),
-                ],
-              },
+                test: /\.(gif|png|jpe?g)/,
+                loader: 'file-loader',
+                exclude: /(node_modules)/,
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: './images/',
+                },
             },
+            // FONTS
             {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: IS_DEV,
-              },
-            }],
-          // use style-loader in development
-          fallback: {
-            loader: 'style-loader',
-          },
+                test: /\.(ttf|eot|woff|woff2|svg)/,
+                loader: 'file-loader',
+                exclude: /(node_modules)/,
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: './fonts/',
+                },
+            },
+        ],
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            IS_DEV: IS_DEV,
         }),
-      },
-      // IMAGES
-      {
-        test: /\.(gif|png|jpe?g)/,
-        loader: 'file-loader',
-        exclude: /(node_modules)/,
-        options: {
-          name: '[name].[ext]',
-          outputPath: './images/',
-        },
-      },
-      // FONTS
-      {
-        test: /\.(ttf|eot|woff|woff2|svg)/,
-        loader: 'file-loader',
-        exclude: /(node_modules)/,
-        options: {
-          name: '[name].[ext]',
-          outputPath: './fonts/',
-        },
-      },
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+        }),
+        new ExtractTextPlugin({
+            filename: 'styles/[name].css',
+            disable: IS_DEV,
+        }),
+        ...generateHTMLPlugins(),
+        new HtmlWebpackInlineSVGPlugin(),
     ],
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      IS_DEV: IS_DEV,
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-    }),
-    new ExtractTextPlugin({
-      filename: 'styles/[name].css',
-      disable: IS_DEV,
-    }),
-    ...generateHTMLPlugins(),
-    new HtmlWebpackInlineSVGPlugin(),
-  ],
-  stats: {
-    colors: true,
-  }
+    stats: {
+        colors: true,
+    }
 };
