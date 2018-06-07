@@ -113,26 +113,28 @@ module.exports = {
                     },
                 }),
             },
-            // IMAGES
+            // FONTS/IMAGES
             {
-                test: /\.(gif|png|jpe?g)/,
-                loader: 'file-loader',
-                exclude: /(node_modules)/,
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: './images/',
-                },
-            },
-            // FONTS
-            {
-                test: /\.(ttf|eot|woff|woff2|svg)/,
-                loader: 'file-loader',
-                exclude: /(node_modules)/,
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: './fonts/',
-                },
-            },
+                test: /\.(woff|woff2|ttf|eot|otf|svg|gif|png|jpe?g)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 1024,
+                            name(file) {
+                                if (file.indexOf('fonts') > -1) {
+                                    return './fonts/[name].[ext]';
+                                }
+                                else {
+                                    return './images/[name].[ext]';
+                                }
+                            },
+                            fallback: 'file-loader',
+                            outputPath: './'
+                        }
+                    }
+                ]
+            }
         ],
     },
     plugins: [
