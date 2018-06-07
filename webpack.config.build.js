@@ -5,7 +5,7 @@ const webpackConfig = require('./webpack.config');
 
 module.exports = merge(webpackConfig, {
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'docs'),
     filename: 'scripts/[name][chunkhash].js',
   },
   plugins: [
