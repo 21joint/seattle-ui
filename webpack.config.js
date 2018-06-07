@@ -84,34 +84,36 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /(node_modules)/,
                 use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
                     use: [
                         {
                             loader: 'css-loader',
                             options: {
+                                minimize: !IS_DEV,
                                 sourceMap: IS_DEV,
-                                url: IS_DEV
-                            },
+                                publicPath: '../'
+                            }
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
                                 sourceMap: IS_DEV,
                                 plugins: [
-                                    autoprefixer({browsers: ['last 3 versions', 'iOS 9']}),
-                                ],
-                            },
+                                    require('postcss-flexbugs-fixes'),
+                                    require('autoprefixer')({
+                                        browsers: ['last 3 versions']
+                                    })
+                                ]
+                            }
                         },
                         {
                             loader: 'sass-loader',
                             options: {
-                                sourceMap: IS_DEV,
-                            },
-                        }],
-                    // use style-loader in development
-                    fallback: {
-                        loader: 'style-loader',
-                    },
-                }),
+                                sourceMap: IS_DEV
+                            }
+                        }
+                    ]
+                })
             },
             // FONTS/IMAGES
             {

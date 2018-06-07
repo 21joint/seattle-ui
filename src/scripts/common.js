@@ -1,7 +1,10 @@
+import '../modules/streamline/icons.scss';
+import '../fonts/climacons/climacons.scss';
+import '../fonts/ronian/stylesheet.scss';
 import '../scss/index.scss';
 import $ from 'jquery';
-import 'bootstrap-sass';
 import Weather from '../modules/weather/weather';
+
 
 var navAnimations = function () {
     var doin = false;
