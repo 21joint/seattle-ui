@@ -93,13 +93,6 @@ module.exports = {
                             },
                         },
                         {
-                            loader: 'resolve-url-loader',
-                            options: {
-                                sourceMap: IS_DEV,
-                                root: conf.dirSrc,
-                            },
-                        },
-                        {
                             loader: 'postcss-loader',
                             options: {
                                 sourceMap: IS_DEV,
@@ -152,8 +145,7 @@ module.exports = {
             'window.jQuery': 'jquery',
         }),
         new ExtractTextPlugin({
-            filename: 'styles/[name].css',
-            disable: IS_DEV,
+            filename: 'styles/[name].css'
         }),
         ...generateHTMLPlugins(),
         new HtmlWebpackInlineSVGPlugin(),
