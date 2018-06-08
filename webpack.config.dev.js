@@ -7,20 +7,13 @@ const conf = require('./conf');
 module.exports = merge(webpackConfig, {
     devServer: {
         watchContentBase: true,
-        port: 3000,
+        port: 2121,
         hot: true,
         open: true,
         publicPath: '/'
     },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
-        ],
-    },
     plugins: [
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
 });

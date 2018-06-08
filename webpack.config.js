@@ -48,41 +48,27 @@ const generateHTMLPlugins = () =>
  * Webpack Configuration
  */
 module.exports = {
-    target: 'web',
-    node: {
-        fs: 'empty',
-    },
     entry: {
-        vendor: path.join(conf.dirSrc, 'scripts/vendor.js'),
-        common: path.join(conf.dirSrc, 'scripts/common.js'),
+        vendor: './src/vendor.js',
+        common: './src/common.js',
     },
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].js',
-    },
-    resolve: {
-        modules: [
-            conf.dirSrc,
-            conf.dirNode,
-            conf.dirImages,
-            conf.dirFonts,
-        ],
-        alias: {
-            '@': path.resolve(__dirname, 'node_modules'),
-            '~': path.resolve(__dirname, 'node_modules'),
-        },
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'scripts/[name].[hash].js',
+        publicPath: '/'
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules)/,
+                include: [
+                    path.join(__dirname, 'src')
+                ],
                 loader: 'babel-loader',
             },
             // SCSS
             {
                 test: /\.scss$/,
-                exclude: /(node_modules)/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -125,10 +111,10 @@ module.exports = {
                             limit: 1024,
                             name(file) {
                                 if (file.indexOf('fonts') > -1) {
-                                    return './fonts/[name].[ext]';
+                                    return 'fonts/[name].[ext]';
                                 }
                                 else {
-                                    return './images/[name].[ext]';
+                                    return 'images/[name].[ext]';
                                 }
                             },
                             fallback: 'file-loader',
@@ -149,7 +135,8 @@ module.exports = {
             'window.jQuery': 'jquery',
         }),
         new ExtractTextPlugin({
-            filename: 'styles/[name].css'
+            filename: 'styles/[name].css',
+            disable: IS_DEV,
         }),
         ...generateHTMLPlugins(),
         new HtmlWebpackInlineSVGPlugin(),

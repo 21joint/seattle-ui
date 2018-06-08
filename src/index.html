@@ -136,11 +136,15 @@ const conf = require('../conf.js');
                                     Favourites </a>
                             </li>
                             <li class="flex-col-auto flex-col-lg-12 order-lg-1">
-                                <a class="btn <%= conf.appPrefix %>-nav--btn bg-dark-2" href="">
+                                <button class="btn <%= conf.appPrefix %>-nav--btn <%= conf.appPrefix %>-search--open bg-dark-2"
+                                        data-target="#<%= conf.appPrefix %>Search"
+                                        aria-expanded="false"
+                                        data-toggle="dropdown">
                                     <svg class="icon-search" width="24" height="24" viewBox="0 0 24 24">
                                         <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
                                     </svg>
-                                    Search </a>
+                                    Search
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -302,7 +306,42 @@ const conf = require('../conf.js');
                     </ul>
                 </nav>
             </div>
-            <div class="<%= conf.appPrefix %>-mobilenav--overlay"></div>
+            <div class="<%= conf.appPrefix %>-dark--overlay"></div>
+        </div>
+        <div class="dropdown <%= conf.appPrefix %>-header--search" id="<%= conf.appPrefix %>Search">
+            <div class="dropdown-menu <%= conf.appPrefix %>-search--inner">
+                <button class="<%= conf.appPrefix %>-nav--btn <%= conf.appPrefix %>-search--close flex-column"
+                        data-target="#<%= conf.appPrefix %>Search"
+                        aria-expanded="true"
+                        data-toggle="dropdown"
+                        data-text="Close"
+                        aria-haspopup="true"><i class="icon-hamburger"></i>
+                </button>
+                <form action="<%= conf.baseUrl %>/search/" method="GET">
+                    <div class="container-fluid">
+                        <div class="flex-row">
+                            <div class="flex-col-12">
+                                <input class="form-control search-field"
+                                       type="search"
+                                       placeholder="Search"
+                                       name="q"
+                                       autocomplete="off"
+                                       autocorrect="off"
+                                       autocapitalize="off"
+                                       value=""
+                                       data-sv-searchinput=""
+                                       autofocus="">
+                                <button class="search-btn" data-sv-searchbtn="">
+                                    <svg class="icon-search" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="<%= conf.appPrefix %>-dark--overlay"></div>
         </div>
         <button class="<%= conf.appPrefix %>-menu--toggle"
                 data-target="#<%= conf.appPrefix %>MobileMenu"

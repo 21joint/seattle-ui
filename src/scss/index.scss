@@ -1,13 +1,13 @@
 //Variables
-@import "./variables";
-@import "./mixins";
+@import "variables";
+@import "mixins";
 //Styles
-@import "./_flex/flex-grid";
-@import "./fonts";
-@import "./helpers";
+@import "_flex/flex-grid";
+//@import "fonts";
+@import "helpers";
 @import '../modules/hamburger/hamburger';
 //@import "../modules/streamline/icons";
-@import "./header";
+@import "header";
 
 
 
