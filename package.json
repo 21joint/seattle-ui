@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@meltwater/fetch-favicon": "^1.0.4",
+    "autoprefixer": "^8.6.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
