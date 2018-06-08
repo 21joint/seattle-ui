@@ -1,4 +1,3 @@
-import 'bootstrap-sass';
 import './fonts/climacons/climacons';
 import './fonts/ronian/stylesheet.scss';
 import './scss/index.scss';
