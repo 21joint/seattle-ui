@@ -54,8 +54,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'scripts/[name].[hash].js',
-        publicPath: '/'
+        filename: 'scripts/[name].[hash].js'
     },
     module: {
         rules: [
