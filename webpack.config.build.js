@@ -8,6 +8,7 @@ module.exports = merge(webpackConfig, {
   output: {
     path: path.join(__dirname, 'docs'),
     filename: 'scripts/[name].[chunkhash].js',
+      publicPath: './'
   },
   plugins: [
     new CleanWebpackPlugin(['docs'])

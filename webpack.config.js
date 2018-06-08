@@ -110,10 +110,10 @@ module.exports = {
                             limit: 1024,
                             name(file) {
                                 if (file.indexOf('fonts') > -1) {
-                                    return 'fonts/[name].[ext]';
+                                    return './fonts/[name].[ext]';
                                 }
                                 else {
-                                    return 'images/[name].[ext]';
+                                    return './images/[name].[ext]';
                                 }
                             },
                             fallback: 'file-loader',
