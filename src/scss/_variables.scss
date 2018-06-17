@@ -343,7 +343,13 @@ $grid-float-breakpoint:     $screen-sm-min !default;
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
 
-
+$grid-breakpoints: (
+        xxs: 0,
+        xs: $screen-xs,
+        sm: $screen-sm,
+        md: $screen-md,
+        lg: $screen-lg
+);
 //== Container sizes
 //
 //## Define the maximum width of `.container` for different screen sizes.

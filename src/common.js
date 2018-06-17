@@ -1,7 +1,7 @@
 import './fonts/climacons/climacons';
-import './fonts/ronian/stylesheet.scss';
+import './fonts/Ronnia/stylesheet.scss';
+import './fonts/streamline/stylesheet.scss';
 import './scss/index.scss';
-
 
 var Weather = function (options) {
     let _queryUri, _unit, _lat, _lnt;
@@ -23,33 +23,18 @@ var Weather = function (options) {
 };
 
 var onScroll = function () {
-    var doin = false;
     var scrolled = $(window).scrollTop();
-    var trns = parseFloat($('.sltl-header').css('transition').split(' ')[1]) * 1000;
-    if (!doin) {
-        if (scrolled > 5) {
-            doin = true;
-            $('.sltl-header').addClass('animated alpha');
-            !$('.sltl-header').hasClass('animated-2') && setTimeout(function () {
-                $('.sltl-header').addClass('animated-2');
-                doin = false;
-            }, trns);
-
-        }
-        else {
-            doin = true;
-            $('.sltl-header').removeClass('animated-2');
-            setTimeout(function () {
-                $('.sltl-header').removeClass('animated alpha');
-                doin = false;
-            }, trns);
-        }
+    if (scrolled > 1) {
+        $('.sltl-header').addClass('animated alpha');
     }
-    $(window).width() >= 1200 && $('.sltl-menu--toggle[aria-expanded=true]').dropdown('toggle');
+    else {
+        $('.sltl-header').removeClass('animated alpha');
+        $(window).width() >= 1200 && $('.sltl-menu--toggle[aria-expanded=true]').dropdown('toggle');
+    }
+
 };
 
 $(document).ready(function () {
-
 
     $('.sltl-menu--toggle').on('click', function () {
         $('.sltl-header').toggleClass('animated');

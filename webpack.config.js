@@ -1,16 +1,15 @@
 const webpack = require('webpack');
 const path = require('path');
-
+const args = require('yargs').argv;
 // * * configuration/structure/folders * * //
 const conf = require('./conf');
-
 // running 'npm run build' makes this variable false
 const IS_DEV = (process.env.NODE_ENV === 'dev');
 
 // ** glob is a plugin to loop through multiple templates **//
 const glob = require('glob');
 
-// ** Sass Autoprefixer **//
+// ** Sass Autoprefixer ** //
 const autoprefixer = require('autoprefixer');
 
 //** HtmlWebpackPlugin compatible with latest webpack 4.4.1, for generating result html **//
@@ -47,9 +46,8 @@ const generateHTMLPlugins = () =>
 /**
  * Webpack Configuration
  */
-module.exports = {
+let webpackConf = {
     entry: {
-        vendor: './src/vendor.js',
         common: './src/common.js',
     },
     output: {
@@ -63,7 +61,7 @@ module.exports = {
                 include: [
                     path.join(__dirname, 'src')
                 ],
-                loader: 'babel-loader',
+                loader: 'babel-loader'
             },
             // SCSS
             {
@@ -85,7 +83,7 @@ module.exports = {
                                 sourceMap: IS_DEV,
                                 plugins: [
                                     require('postcss-flexbugs-fixes'),
-                                    require('autoprefixer')({
+                                    autoprefixer({
                                         browsers: ['last 3 versions']
                                     })
                                 ]
@@ -118,7 +116,7 @@ module.exports = {
                             },
                             fallback: 'file-loader',
                             outputPath: './',
-                            publicPath: '../'
+                            publicPath: args.git ? '../': '/'
                         }
                     }
                 ]
@@ -141,7 +139,20 @@ module.exports = {
         ...generateHTMLPlugins(),
         new HtmlWebpackInlineSVGPlugin(),
     ],
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: 'initial',
+                    name: 'vendors'
+                },
+            }
+        }
+    },
     stats: {
         colors: true,
     }
 };
+
+module.exports = webpackConf;
