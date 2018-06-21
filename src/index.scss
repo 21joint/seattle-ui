@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import "variables";
+@import "~bootstrap/scss/mixins";
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-stretch: condensed;
+}
+
+.#{$prefix}-header {
+  padding: 15px 0;
+  font-size: 18px;
+  background-color: #ffffff;
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    a {
+      color: #9d9d9d;
+      display: block;
+      padding: 10px 25px 10px;
+      text-transform: none;
+      border: none;
+      @include hover-focus-active {
+        background-color: transparent;
+        outline: none;
+        color: #444444;
+      }
+    }
+  }
+}
+.checkout-hero .container-fluid > .flex-row:first-child {
+  min-height: 80vh;
+}
+.checkout-hero .container-fluid > .flex-row > [class^="flex-col"]:first-child {
+  display: none;
+}
+.checkout-hero--title {
+  font-weight: 300;
+  color: #044076;
+  text-shadow: none;
+  font-size: 40px;
+  text-transform: none;
+}
+
+.checkout-hero--btn {
+  border-radius: 6px;
+  background-color: #044076;
+  color: #ffffff;
+  text-transform: none;
+  border: none;
+  width: auto;
+}

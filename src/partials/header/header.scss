@@ -1,0 +1,32 @@
+.#{$prefix}-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2000;
+  transition: background-color 0.2s ease;
+  .scrolled & {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  li {
+    width: 150px;
+  }
+  a {
+    color: #ffffff;
+    padding: 0;
+    &.active {
+      color: $blue;
+    }
+    &:not(.#{$prefix}-logo) {
+      line-height: 150px;
+    }
+    @include hover-focus-active {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+}
+
+.#{$prefix}-logo {
+
+}

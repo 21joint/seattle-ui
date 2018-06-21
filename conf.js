@@ -1,16 +1,18 @@
-const path = require('path');
+const Pkg = require('./package');
 
-let conf;
-
-conf = {
-  onlyHeader: true,
-  baseUrl: 'https://deals.seattlesouthside.com/',
-  appTitle: 'Do More - Save More Passport',
-  appPrefix: 'seattle',
-  dirNode: 'node_modules',
-  dirSrc: path.join(__dirname, 'src'),
-  dirFonts: path.join(__dirname, 'src/fonts'),
-  dirImages: path.join(__dirname, 'src/images'),
+module.exports = {
+  BASE_URL: 'https://www.seattlesouthside.com',
+  title: Pkg.name,
+  description: Pkg.description,
+  prefix: 'ssside',
+  paths: {
+    nodePath: 'node_modules',
+    src: 'src',
+    assets: 'src/assets',
+    fonts: 'src/assets/fonts',
+    images: 'src/assets/images',
+    icons: 'src/assets/icomoon/fonts',
+    dist: 'dist',
+    publicPath: '/'
+  }
 };
-
-module.exports = conf;

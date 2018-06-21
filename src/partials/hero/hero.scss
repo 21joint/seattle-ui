@@ -1,0 +1,100 @@
+@import "~owl.carousel/dist/assets/owl.carousel.min.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.min.css";
+
+.#{$prefix}-hero {
+  position: relative;
+  font-size: 14px;
+  .embed-responsive {
+    @include media-breakpoint-up(lg) {
+      max-height: 100vh;
+      overflow: hidden;
+      video {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(#000000, 0.65);
+  }
+}
+
+.#{$prefix}-hero--video {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(#000, 0.65);
+  }
+}
+
+.#{$prefix}-hero--slider {
+  position: absolute;
+  bottom: 50px;
+  text-align: center;
+  padding: 20px;
+  z-index: 100;
+  .owl-nav {
+    position: absolute;
+    font-size: 60px;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    > button {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      text-align: center;
+      line-height: 1 !important;
+      justify-content: center;
+      align-items: center;
+      outline: 0;
+      border: none;
+      @include hover {
+        color: #ffffff;
+      }
+      span {
+        vertical-align: middle;
+      }
+
+    }
+  }
+  h1 {
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #000000;
+    transition: 0.44s 0.44s all ease-in-out;
+  }
+  p {
+    transition: 0.44s 0.55s all ease-in-out;
+  }
+  .btn {
+    transition: 0.44s 0.66s all ease-in-out;
+  }
+  .owl-item {
+    &:not(.center) {
+      h1, p, .btn {
+        opacity: 0;
+        transform: translate(0, 5px);
+      }
+    }
+  }
+  .single-slide--description {
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,12 @@
+.#{$prefix}-content--section {
+  min-height: 100vh;
+  h2 {
+    font-weight: 700;
+  }
+}
+
+.masonry {
+  .grid-item {
+    padding: 5px !important;
+  }
+}
