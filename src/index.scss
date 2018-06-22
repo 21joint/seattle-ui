@@ -14,8 +14,8 @@ body {
   li {
     display: inline-block;
     vertical-align: middle;
-    a {
-      color: #9d9d9d;
+    a.main-links {
+      color: #9d9d9d !important;
       display: block;
       padding: 10px 25px 10px;
       text-transform: none;
@@ -28,12 +28,15 @@ body {
     }
   }
 }
+
 .checkout-hero .container-fluid > .flex-row:first-child {
   min-height: 80vh;
 }
+
 .checkout-hero .container-fluid > .flex-row > [class^="flex-col"]:first-child {
   display: none;
 }
+
 .checkout-hero--title {
   font-weight: 300;
   color: #044076;
@@ -49,4 +52,88 @@ body {
   text-transform: none;
   border: none;
   width: auto;
+}
+
+
+
+
+
+.checkout-venues--section{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.checkout-venue--image{
+  img{
+    border-radius: 5px;
+  }
+}
+
+
+.page-section{
+  h2,h3,h4{
+    color: #4c769e;
+  }
+}
+
+.checkout-venues--number{
+  color: #d88611;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.checkout-venue--title{
+    line-height: 1.2;
+    margin-top: 10px;
+  font-size: 20px;
+}
+
+.checkout-venue--content{
+  font-size: 16px;
+  color: #9d9d9d
+}
+
+.checkout-venue--header{
+  margin-bottom: 5px;
+}
+
+.passport-section{
+  background-color: #EAEAFF;
+}
+
+.passport-single-venue{
+  margin: 10px 0;
+  border-radius: 5px;
+}
+.passport-single--title{
+  padding: 10px 15px;
+  color: #9d9d9d
+}
+
+.navbar_toggler{
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 15px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  z-index: 100;
+  outline: none;
+}
+
+.navbar_toggler .line {
+  display: block;
+  height: 2px;
+  border-radius: 5px;
+  background: black;
+  margin-bottom: 6px;
+  -webkit-transition: 0.4s all cubic-bezier(0.93, 0.03, 0.23, 1.01);
+  -o-transition: 0.4s all cubic-bezier(0.93, 0.03, 0.23, 1.01);
+  transition: 0.4s all cubic-bezier(0.93, 0.03, 0.23, 1.01);
 }
