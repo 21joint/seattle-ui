@@ -24,7 +24,7 @@
       }
     }
   }
-  .flex-col-sm-4 {
+  [class^="flex-col"]{
     @media(min-width: $screen-sm) {
       padding: 0 0 0 75px;
     }
