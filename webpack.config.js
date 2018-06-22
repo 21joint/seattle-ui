@@ -90,7 +90,7 @@ module.exports = {
               },
               fallback: 'file-loader',
               outputPath: './',
-              publicPath: args.git ? '/bellatour/' : '/'
+              publicPath: args.git ? '/' + Pkg.name +'/' : '/'
             }
           }
         ]
@@ -107,7 +107,7 @@ module.exports = {
       'window.jQuery': 'jquery'
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.ejs'
+      template: './src/index.html'
     }),
     new ExtractTextPlugin({
       filename: 'styles/[name].css'

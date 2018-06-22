@@ -1,57 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import "variables";
-@import "~bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../partials/header/header";
+@import "../../partials/hero/hero";
+@import "../../partials/hero-jumbotron/hero-jumbotron";
+@import "../../partials/steps/steps";
 
 body {
   font-family: "Open Sans", sans-serif;
   font-stretch: condensed;
+  color: #5a5a5a;
 }
 
-.#{$prefix}-header {
-  padding: 15px 0;
-  font-size: 18px;
-  background-color: #ffffff;
-  li {
-    display: inline-block;
-    vertical-align: middle;
-    a.main-links {
-      color: #9d9d9d !important;
-      display: block;
-      padding: 10px 25px 10px;
-      text-transform: none;
-      border: none;
-      @include hover-focus-active {
-        background-color: transparent;
-        outline: none;
-        color: #444444;
-      }
-    }
+.text-sm-left {
+  @media (min-width: $screen-sm) {
+    text-align: left !important;
   }
 }
 
-.checkout-hero .container-fluid > .flex-row:first-child {
-  min-height: 80vh;
-}
-
-.checkout-hero .container-fluid > .flex-row > [class^="flex-col"]:first-child {
-  display: none;
-}
-
-.checkout-hero--title {
+h2 {
   font-weight: 300;
-  color: #044076;
-  text-shadow: none;
-  font-size: 40px;
-  text-transform: none;
+  font-stretch: normal;
 }
 
-.checkout-hero--btn {
-  border-radius: 6px;
-  background-color: #044076;
-  color: #ffffff;
-  text-transform: none;
+.btn {
+  border-radius: 3px;
   border: none;
-  width: auto;
+  font-size: 14px;
+  padding: 18px 36px;
 }
 
 .checkout-venues--section {
@@ -100,14 +76,14 @@ body {
 .passport-single-venue {
   margin: 10px 0;
   border-radius: 5px;
-  box-shadow: 0 2px 4px 2px hsla(0,0%,68%,.35)
+  box-shadow: 0 2px 4px 2px hsla(0, 0%, 68%, .35)
 }
 
 .passport-single--title {
   padding: 10px 15px;
   color: #9d9d9d;
   min-height: 130px;
-  h4{
+  h4 {
     font-size: 16px;
   }
 
@@ -121,7 +97,7 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.navbar_toggler {
+.navbar-toggler {
   position: absolute;
   cursor: pointer;
   top: 50%;
@@ -132,20 +108,18 @@ body {
   padding: 0;
   border: none;
   background-color: transparent;
-  -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
   z-index: 100;
   outline: none;
 }
 
-.navbar_toggler .line {
+.navbar-toggler .line {
   display: block;
   height: 2px;
   border-radius: 5px;
   background: black;
   margin-bottom: 6px;
-  -webkit-transition: 0.4s all cubic-bezier(0.93, 0.03, 0.23, 1.01);
-  -o-transition: 0.4s all cubic-bezier(0.93, 0.03, 0.23, 1.01);
   transition: 0.4s all cubic-bezier(0.93, 0.03, 0.23, 1.01);
 }
+
+

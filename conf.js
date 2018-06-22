@@ -4,7 +4,7 @@ module.exports = {
   BASE_URL: 'https://www.seattlesouthside.com',
   title: Pkg.name,
   description: Pkg.description,
-  prefix: 'ssside',
+  prefix: 'seattle',
   paths: {
     nodePath: 'node_modules',
     src: 'src',

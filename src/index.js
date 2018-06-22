@@ -1,6 +1,9 @@
 /**
  * Application entry point
  */
-import 'bootstrap-sass/assets/javascripts/bootstrap/collapse';
-import './externals.scss';
-import './index.scss'
+
+import './assets/styles/externals.scss';
+import './assets/styles/index.scss';
+import 'bootstrap-sass/assets/javascripts/bootstrap.min';
+import './partials/header/header';
+import './partials/hero/hero';
