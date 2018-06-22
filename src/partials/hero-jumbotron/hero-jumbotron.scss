@@ -8,11 +8,15 @@
     box-shadow: 0px 2px 14px 1px #00000030;
     border-radius: 4px;
     overflow: hidden;
+    margin: 10px;
     [class^="flex-col"]:first-child {
       padding: 40px !important;
      @media (min-width: $screen-sm) {
        padding: 50px !important;
      }
+    }
+    @media (min-width: $screen-sm) {
+      margin: 0 !important;
     }
   }
   h5 {

@@ -18,13 +18,13 @@
       @media(min-width: $screen-sm) {
         position: absolute;
         top: -10px;
-        left: 0;
+        left: 10px;
         font-size: 80px;
         margin-right: 0;
       }
     }
   }
-  [class^="flex-col"]{
+  [class^="flex-col"]:first-child{
     @media(min-width: $screen-sm) {
       padding: 0 0 0 75px;
     }

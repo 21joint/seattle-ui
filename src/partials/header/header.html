@@ -1,12 +1,22 @@
 <header class="${ require('../../../conf').prefix }-header">
   <div class="container-fluid">
     <div class="flex-row align-items-center justify-content-between">
+      
       <div class="flex-col-auto">
-        <a class="${ require('../../../conf').prefix }-logo" href="${ require('../../../conf').BASE_URL }"> <img class="img-responsive"
-                                                                               src="../../assets/images/logo.svg"
-                                                                               alt="${ require('../../../conf').name }"> </a>
+        <a class="${ require('../../../conf').prefix }-logo" href="${ require('../../../conf').BASE_URL }">
+          <img width="176"
+               height="51"
+               class="img-responsive hidden-xs hidden-sm"
+               src="../../assets/images/logo.svg"
+               alt="${ require('../../../conf').name }"> <img width="40"
+                                                              height="40"
+                                                              class="img-responsive visible-xs visible-sm"
+                                                              src="../../assets/images/logo-small.svg"
+                                                              alt="${ require('../../../conf').name }">
+        
+        </a>
       </div>
-      <div class="flex-col-auto">
+      <div class="flex-col-sm-auto position-static ml-auto">
         <button type="button"
                 class="navbar-toggler navbar_toggler visible-xs visible-sm"
                 data-toggle="collapse"
@@ -14,19 +24,31 @@
                 aria-expanded="false">
           <span class="line top"></span> <span class="line mid"></span> <span class="line bot mb-0"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navBar" aria-expanded="false">
+        <div class="collapse navbar-collapse mt-15 mt-sm-0" id="navBar">
           <ul class="nav">
             <li>
-              <a class="main-links" href="${ require('../../../conf').BASE_URL }/explore/" target="_blank" title="Explore">Explore</a>
+              <a class="main-links"
+                 href="${ require('../../../conf').BASE_URL }/explore/"
+                 target="_blank"
+                 title="Explore">Explore</a>
             </li>
             <li>
-              <a class="main-links" href="${ require('../../../conf').BASE_URL }/play/" target="_blank" title="Play">Play</a>
+              <a class="main-links"
+                 href="${ require('../../../conf').BASE_URL }/play/"
+                 target="_blank"
+                 title="Play">Play</a>
             </li>
             <li>
-              <a class="main-links" href="${ require('../../../conf').BASE_URL }/eat/" target="_blank" title="Eat">Eat</a>
+              <a class="main-links"
+                 href="${ require('../../../conf').BASE_URL }/eat/"
+                 target="_blank"
+                 title="Eat">Eat</a>
             </li>
             <li>
-              <a class="main-links" href="${ require('../../../conf').BASE_URL }/stay/" target="_blank" title="Stay">Stay</a>
+              <a class="main-links"
+                 href="${ require('../../../conf').BASE_URL }/stay/"
+                 target="_blank"
+                 title="Stay">Stay</a>
             </li>
             <li>
               <a id="last-item-main-links"
