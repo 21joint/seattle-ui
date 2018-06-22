@@ -40,12 +40,24 @@ h2 {
 .checkout-venues--section {
   padding-right: 10px;
   padding-left: 10px;
+  position: relative;
 }
 
 .checkout-venue--image {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("https://res.cloudinary.com/bandwango/image/upload/c_fit,h_500,w_500/c0fxj78rsekymilpj6uy ");
+  margin-bottom: 0;
   img {
     border-radius: 5px;
     width: 100%;
+    opacity: 0;
   }
 }
 
@@ -68,6 +80,34 @@ h2 {
 
 .checkout-venue--header {
   margin-bottom: 5px;
+  >.flex-row{
+    .flex-col-auto{
+      display: none;
+    }
+  }
+}
+
+.checkout-single--venue{
+  >.flex-row{
+    padding: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 14px 1px #00000030;
+    box-shadow: 0 2px 14px 1px #00000030;
+    border-radius: 4px;
+    overflow: hidden;
+    .flex-col-sm-auto{
+      padding: 0;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.33333%;
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+    }
+
+  }
+}
+
+.checkout-single--venue:not(:last-child){
+  border: none;
 }
 
 .navbar-toggler {
