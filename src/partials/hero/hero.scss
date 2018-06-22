@@ -2,7 +2,6 @@
   position: relative;
   font-size: 14px;
   .container-fluid > .flex-row:first-child {
-
     @media(max-width: $screen-xs) {
       text-align: left;
     }
