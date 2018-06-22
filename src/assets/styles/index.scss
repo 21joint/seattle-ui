@@ -13,6 +13,12 @@ body {
   color: #5a5a5a;
 }
 
+.page-section {
+  h2, h3, h4 {
+    color: #4c769e;
+  }
+}
+
 .text-sm-left {
   @media (min-width: $screen-sm) {
     text-align: left !important;
@@ -43,12 +49,6 @@ h2 {
   }
 }
 
-.page-section {
-  h2, h3, h4 {
-    color: #4c769e;
-  }
-}
-
 .checkout-venues--number {
   color: #d88611;
   font-size: 20px;
@@ -68,35 +68,6 @@ h2 {
 
 .checkout-venue--header {
   margin-bottom: 5px;
-}
-
-.passport-section {
-  background-color: #EAEAFF;
-}
-
-.passport-single-venue {
-  margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px 2px hsla(0, 0%, 68%, .35)
-}
-
-.passport-single--title {
-  padding: 10px 15px;
-  color: #9d9d9d;
-  min-height: 130px;
-  h4 {
-    font-size: 16px;
-  }
-
-}
-
-.passport-single--image {
-  width: auto;
-  max-height: 200px;
-  height: 100%;
-  background-size: cover;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .navbar-toggler {
