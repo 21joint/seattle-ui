@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import "variables";
 @import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../partials/hamburger/hamburger";
 @import "../../assets/styles/externals";
 @import "../../partials/header/header";
 @import "../../partials/hero/hero";
@@ -28,15 +29,16 @@ body {
     text-align: left !important;
   }
 }
+
 .mt-15 {
   margin-top: 15px;
 }
+
 .mt-sm-0 {
   @media (min-width: $screen-sm) {
     margin-top: 0 !important;
   }
 }
-
 
 h2 {
   font-weight: 300;
@@ -54,18 +56,26 @@ h2 {
   padding-right: 10px;
   padding-left: 10px;
   position: relative;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e8ebf0+0,7db9e8+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(232, 235, 240, 1) 0%, rgba(125, 185, 232, 0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(232, 235, 240, 1) 0%, rgba(125, 185, 232, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(232, 235, 240, 1) 0%, rgba(125, 185, 232, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8ebf0', endColorstr='#007db9e8', GradientType=0); /* IE6-9 */
 }
 
 .checkout-venue--image {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url("https://res.cloudinary.com/bandwango/image/upload/c_fit,h_500,w_500/c0fxj78rsekymilpj6uy ");
+  height: auto;
   margin-bottom: 0;
   img {
     border-radius: 5px;
     width: 100%;
     opacity: 0;
+  }
+  @media(min-width: $screen-sm) {
+    max-width: none;
   }
 }
 
@@ -88,45 +98,87 @@ h2 {
 
 .checkout-venue--header {
   margin-bottom: 5px;
-  >.flex-row{
-    .flex-col-auto{
-      display: none;
+  > .flex-row {
+    .flex-col-auto {
+      //display: none;
     }
   }
 }
 
-.checkout-single--venue{
-  >.flex-row{
+.checkout-single--venue {
+  .btn-info--toggle {
+    text-align: left;
+    color: #bdbdbd;
+    font-size: inherit;
+    font-weight: 400;
+    margin-top: 15px;
+    span.txt {
+      &:before {
+        content: 'More Info';
+        text-transform: none;
+
+      }
+    }
+    @include hover-focus-active {
+      color: #bdbdbd;
+    }
+    &[aria-expanded=true] {
+      margin-top: 30px;
+      span.txt {
+        color: red;
+      }
+    }
+  }
+  > .flex-row {
     position: relative;
-    padding: 0;
     background-color: #fff;
-    -webkit-box-shadow: 0 2px 14px 1px #00000030;
     box-shadow: 0 2px 14px 1px #00000030;
     border-radius: 4px;
     overflow: hidden;
-    .flex-col-sm-auto{
-      padding: 0;
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 33.33333%;
+    padding: 30px 15px;
+    > [class^="flex-col"]:first-child {
       flex: 0 0 33.33333%;
       max-width: 33.33333%;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
+      order: 1;
     }
-    .flex-col{
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 66.66667%;
-      flex: 0 0 66.66667%;
-      max-width: 66.66667%;
+    > [class^="flex-col"]:last-child {
+
     }
 
   }
 }
 
-.checkout-single--venue:not(:last-child){
+.checkout-single--venue:not(:last-child) {
   border: none;
 }
 
+.checkout-venue--title {
+  color: #1D83BB !important;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 0;
+}
 
+.whats-included--box li {
+  padding: 0;
+  font-weight: 300;
+  font-size: 18px;
+  @media(min-width: $screen-sm) {
+    font-size: 22px;
+  }
+}
+
+.whats-included--box li:before {
+  display: none;
+}
+
+.whats-included--title {
+  display: none;
+}
+
+.checkout-venue--info ul {
+  line-height: inherit;
+}
+.checkout-venues--heading {
+  margin-bottom: 30px;
+}

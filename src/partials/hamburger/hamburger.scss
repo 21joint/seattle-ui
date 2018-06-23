@@ -1,10 +1,7 @@
 @import "variables";
 
-
-
 .#{$hamburger-selector} {
   font-size: 22px;
-
 }
 
 .#{$hamburger-selector}, .#{$hamburger-selector}:after, .#{$hamburger-selector}:before {
