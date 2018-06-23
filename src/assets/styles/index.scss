@@ -58,11 +58,6 @@ h2 {
 
 .checkout-venue--image {
   background-size: cover;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url("https://res.cloudinary.com/bandwango/image/upload/c_fit,h_500,w_500/c0fxj78rsekymilpj6uy ");
@@ -83,7 +78,7 @@ h2 {
 .checkout-venue--title {
   line-height: 1.2;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .checkout-venue--content {
@@ -102,6 +97,7 @@ h2 {
 
 .checkout-single--venue{
   >.flex-row{
+    position: relative;
     padding: 0;
     background-color: #fff;
     -webkit-box-shadow: 0 2px 14px 1px #00000030;
@@ -114,6 +110,16 @@ h2 {
       -ms-flex: 0 0 33.33333%;
       flex: 0 0 33.33333%;
       max-width: 33.33333%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+    .flex-col{
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 66.66667%;
+      flex: 0 0 66.66667%;
+      max-width: 66.66667%;
     }
 
   }
