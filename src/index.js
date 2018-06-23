@@ -12,5 +12,5 @@ $('.checkout-single--venue').each(function(index, venue) {
   var $newTxt = $('<li></li>').append($txtCol);
   var $moreInfoBtn = $(venue).find('.btn-info--toggle');
   $moreInfoBtn.insertAfter($(venue).find('.collapse'));
-  $(venue).find('.checkout-venue--info ul > li:first-child').prepend($newTxt);
+  $(venue).find('.checkout-venue--info ul').prepend($newTxt);
 });
