@@ -54,11 +54,14 @@ h2 {
 }
 
 .checkout-venue--image {
-  background-size: cover;
-  background-position: center center;
   background-repeat: no-repeat;
-  height: auto;
   margin-bottom: 0;
+  position: absolute;
+  width: 270px;
+  right: 10px;
+  top: 10px;
+  background-size: 100%;
+  bottom: 10px;
   img {
     border-radius: 5px;
     width: 100%;
@@ -103,7 +106,8 @@ h2 {
     color: #bdbdbd;
     font-size: inherit;
     font-weight: 400;
-    margin-top: 15px;
+    margin-top: 0 !important;
+    padding: 15px 0 0 !important;
     background-color: transparent;
     span.txt {
       &:before {

@@ -11,9 +11,9 @@
     margin: 10px;
     [class^="flex-col"]:first-child {
       padding: 40px !important;
-     @media (min-width: $screen-sm) {
-       padding: 50px !important;
-     }
+      @media (min-width: $screen-sm) {
+        padding: 50px !important;
+      }
     }
     @media (min-width: $screen-sm) {
       margin: 0 !important;
@@ -58,12 +58,12 @@
 }
 
 .hero-jumbotron--image {
-  background-size: cover;
+  background-size: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-position: center center;
   background-repeat: no-repeat;
+  background-position: 0 0;
 }
