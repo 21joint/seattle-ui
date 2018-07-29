@@ -1,9 +1,10 @@
-/**
- * Application entry point
- */
+// /**
+//  * Application entry point
+//  */
 
-if (process.env.NODE_ENV === 'dev') {
-  import('./externals');
-}
+// if (process.env.NODE_ENV === 'dev') {
+  
+// }
 
-import ('./assets/styles/index.scss');
+import './externals';
+import './assets/styles/index.scss';
