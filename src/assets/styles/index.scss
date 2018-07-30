@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import "../../assets/styles/fonts";
 @import "variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../partials/hamburger/hamburger";
 @import "../../assets/styles/main";
 @import "../../partials/header/header";
-@import "../../partials/hero/hero";
-@import "../../partials/hero-jumbotron/hero-jumbotron";
-@import "../../partials/steps/steps";
+

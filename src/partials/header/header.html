@@ -1,11 +1,11 @@
 <header class="${ require('../../../conf').prefix }-header">
   <div class="container-fluid">
     <div class="flex-row align-items-center justify-content-between">
-      
+
       <div class="flex-col-auto">
         <a class="${ require('../../../conf').prefix }-logo" href="${ require('../../../conf').BASE_URL }">
-          <img width="176"
-               height="51"
+          <img width="280"
+               height="75"
                class="img-responsive hidden-xs hidden-sm"
                src="../../assets/images/logo.svg"
                alt="${ require('../../../conf').name }"> <img width="40"
@@ -13,10 +13,10 @@
                                                               class="img-responsive visible-xs visible-sm"
                                                               src="../../assets/images/logo-small.svg"
                                                               alt="${ require('../../../conf').name }">
-        
+
         </a>
       </div>
-      <div class="flex-col-sm-auto position-static ml-auto">
+      <div class="flex-col position-static ml-auto">
         <button type="button"
                 class="navbar-toggler navbar_toggler visible-xs visible-sm"
                 data-toggle="collapse"
@@ -24,48 +24,76 @@
                 aria-expanded="false">
           <span class="icon-hamburger"></span>
         </button>
-        <div class="collapse navbar-collapse mt-15 mt-sm-0" id="navBar">
-          <ul class="nav">
-            <li>
-              <a class="main-links"
-                 href="${ require('../../../conf').BASE_URL }/explore/"
-                 target="_blank"
-                 title="Explore">Explore</a>
-            </li>
-            <li>
-              <a class="main-links"
-                 href="${ require('../../../conf').BASE_URL }/play/"
-                 target="_blank"
-                 title="Play">Play</a>
-            </li>
-            <li>
-              <a class="main-links"
-                 href="${ require('../../../conf').BASE_URL }/eat/"
-                 target="_blank"
-                 title="Eat">Eat</a>
-            </li>
-            <li>
-              <a class="main-links"
-                 href="${ require('../../../conf').BASE_URL }/stay/"
-                 target="_blank"
-                 title="Stay">Stay</a>
-            </li>
-            <li>
-              <a id="last-item-main-links"
-                 class="main-links"
-                 href="${ require('../../../conf').BASE_URL }/deals/"
-                 target="_blank"
-                 title="Deals">Deals</a>
-            </li>
-            <li>
-              <a id="south-side"
-                 class="main-links"
-                 href="${ require('../../../conf').BASE_URL }/tripbuilder/"
-                 target="_blank"
-                 title="Deals">My Seattle Southside Trip</a>
-            </li>
-          </ul>
+        <div class="${ require('../../../conf').prefix }-header--right collapse navbar-collapse" id="navBar">
+          <nav class="${ require('../../../conf').prefix }-header--rightTop">
+            <div class="flex-row align-items-center">
+              <div class="flex-col-auto">
+                <ul class="${ require('../../../conf').prefix }-main--navTop m-0 p-0">
+                  <li><a href="#">Meetings</a></li>
+                  <li><a href="">Sports</a></li>
+                  <li><a href="">Groups</a></li>
+                  <li><a href="">Weddings</a></li>
+                  <li><a href="">Media</a></li>
+                  <li><a href="">Blog</a></li>
+                </ul>
+              </div>
+              <div class="flex-col">
+                <ul class="${ require('../../../conf').prefix }-header--social m-0 p-0">
+                  <li><a href="#"><i class="icon-facebook"></i></a></li>
+                  <li><a href="#"><i class="icon-twitter"></i></a></li>
+                  <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                  <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                  <li><a href="#"><i class="icon-instagram"></i></a></li>
+                  <li><a href="#"><i class="icon-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+
+          </nav>
+          <nav class="${ require('../../../conf').prefix }-header--rightBot">
+            <div class="flex-row">
+              <div class="flex-col-auto">
+                <ul class="${ require('../../../conf').prefix }-main--navBot m-0 p-0">
+                  <li>
+                    <a class="main-links"
+                       href="${ require('../../../conf').BASE_URL }/explore/"
+                       target="_blank"
+                       title="Explore">Things To Do</a>
+                  </li>
+                  <li>
+                    <a class="main-links"
+                       href="${ require('../../../conf').BASE_URL }/play/"
+                       target="_blank"
+                       title="Play">Hotels/loading</a>
+                  </li>
+                  <li>
+                    <a class="main-links"
+                       href="${ require('../../../conf').BASE_URL }/eat/"
+                       target="_blank"
+                       title="Eat">Restaurants</a>
+                  </li>
+                  <li>
+                    <a class="main-links"
+                       href="${ require('../../../conf').BASE_URL }/stay/"
+                       target="_blank"
+                       title="Stay">Region</a>
+                  </li>
+                  <li>
+                    <a id="last-item-main-links"
+                       class="main-links"
+                       href="${ require('../../../conf').BASE_URL }/deals/"
+                       target="_blank"
+                       title="Deals">plan</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </nav>
+
+
         </div>
+
       </div>
     </div>
   </div>
